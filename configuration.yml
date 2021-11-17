@@ -1,0 +1,37 @@
+server:
+  maxThreads: 200
+  applicationContextPath: /oracle-task-app
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+logging:
+  level: INFO
+  loggers:
+    com.oracle.task: INFO
+
+mongoDBConnection:
+  credentials:
+    username: "oracle_user"
+    password: "Appple@32!"
+  seeds:
+    - host: "mongodb"
+      port: 27017
+  database: "tasks"
+
+swagger:
+  basePath: /oracle-task-app
+  resourcePackage: com.oracle.task.resources
+  scan: true
+  info:
+    version: "1.0.0"
+    title: "TASK API CRUD"
+    description: "A simple API used for expose CRUD operation on MongoDB collection"
+    termsOfService: "http://swagger.io/terms/"
+    contact:
+      name: "Task API "
+    license:
+      name: "Maheen Alaudeen"
